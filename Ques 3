@@ -1,0 +1,35 @@
+
+#include <bits/stdc++.h> 
+using namespace std; 
+
+int minDistance(int A[], int n, int x, int y) 
+{ 
+	int i, j; 
+	int min_distance = INT_MAX; 
+	for (i = 0; i < n; i++) 
+	{ 
+		for (j = i+1; j < n; j++) 
+		{ 
+			if( (x == A[i] && y == A[j] || 
+				y == A[i] && x == A[j]) && 
+				min_distance > abs(i-j)) 
+			{ 
+				min_distance = abs(i-j); 
+			} 
+		} 
+	} 
+	return min_distance; 
+} 
+
+int main() 
+{ 
+	int A[] = {3, 9, 4, 0, 2, 5, 5, 1, 8, 1, 0, 3}; 
+	int n = sizeof(A)/sizeof(A[0]); 
+	int x = 3; 
+	int y = 6; 
+
+	cout << "Minimum distance between " << x << 
+					" and " << y << " is " << 
+					minDistance(arr, n, x, y) << endl; 
+} 
+
