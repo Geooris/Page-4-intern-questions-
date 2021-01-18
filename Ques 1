@@ -1,0 +1,72 @@
+# include <bits/stdc++.h>
+# include <stdlib.h> 
+# include <math.h>
+ using namespace std;
+
+void minimumSumPair(int A[], int A_size)
+{
+
+    int count = 0;
+
+    int l, r, min_sum, sum, min_l, min_r;
+
+    if(A_size < 2)
+
+    {
+
+        cout << "Invalid Input";
+
+        return;
+
+    }
+
+    min_l = 0;
+
+    min_r = 1;
+
+    min_sum = A[0] + A[1];
+
+     
+
+    for(i = 0; i < A_size - 1; i++)
+
+    {
+
+        for(r = l + 1; r < A_size; r++)
+
+        {
+
+        sum = A[l] + A[r];
+
+        if(abs(min_sum) > abs(sum))
+
+        {
+
+            min_sum = sum;
+
+            min_l = l;
+
+            min_r = r;
+
+        }
+
+        }
+
+    }
+
+     
+
+    cout << "The two elements whose sum is minimum are "
+
+         << A[min_l] << " and " << A[min_r];
+}
+
+int main()
+{
+
+    int A[] = {1, 10, 20, 30, 40, 50, 60};
+
+    minimumSumPair(A, 7);
+
+    return 0;
+}
