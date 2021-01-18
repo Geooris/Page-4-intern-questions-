@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+ 
+void printRepeating(int A[], int size)
+{
+
+    int i;
+
+    cout << "The repeating elements are:" << endl;
+
+    for (i = 0; i < size; i++) {
+
+        if (A[abs(A[i])] >= 0)
+
+            A[abs(A[i])] = -A[abs(A[i])];
+
+        else
+
+            cout << abs(A[i]) << " ";
+
+    }
+}
+
+int main()
+{
+
+    int A[] = { 1, 6, 3, 2, 3, 8, 6 };
+
+    int A_size = sizeof(A) / sizeof(A[0]);
+
+    printRepeating(A, A_size);
+
+    return 0;
+}
